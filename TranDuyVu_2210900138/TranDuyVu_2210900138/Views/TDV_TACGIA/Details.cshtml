@@ -1,0 +1,27 @@
+﻿@model TranDuyVu_2210900138.Models.TDV_TACGIA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_TdvLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TDV_TACGIA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tdv_TenTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tdv_TenTG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Tdv_MaTG }) |
+    @Html.ActionLink("Back to List", "TdvIndex")
+</p>

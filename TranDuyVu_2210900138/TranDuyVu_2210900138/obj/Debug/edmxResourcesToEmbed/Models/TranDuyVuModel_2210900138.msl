@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TranDuyVu_2210900138ModelStoreContainer" CdmEntityContainer="TranDuyVu_2210900138Entities">
+    <EntitySetMapping Name="TDV_SACH">
+      <EntityTypeMapping TypeName="TranDuyVu_2210900138Model.TDV_SACH">
+        <MappingFragment StoreEntitySet="TDV_SACH">
+          <ScalarProperty Name="Tdv_MaSach" ColumnName="Tdv_MaSach" />
+          <ScalarProperty Name="Tdv_TenSach" ColumnName="Tdv_TenSach" />
+          <ScalarProperty Name="Tdv_SoTrang" ColumnName="Tdv_SoTrang" />
+          <ScalarProperty Name="Tdv_NamXB" ColumnName="Tdv_NamXB" />
+          <ScalarProperty Name="Tdv_MaTG" ColumnName="Tdv_MaTG" />
+          <ScalarProperty Name="Tdv_TrangThai" ColumnName="Tdv_TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TDV_TACGIA">
+      <EntityTypeMapping TypeName="TranDuyVu_2210900138Model.TDV_TACGIA">
+        <MappingFragment StoreEntitySet="TDV_TACGIA">
+          <ScalarProperty Name="Tdv_MaTG" ColumnName="Tdv_MaTG" />
+          <ScalarProperty Name="Tdv_TenTG" ColumnName="Tdv_TenTG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

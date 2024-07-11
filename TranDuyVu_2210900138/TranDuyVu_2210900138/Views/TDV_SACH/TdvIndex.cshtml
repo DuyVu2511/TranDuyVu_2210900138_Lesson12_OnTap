@@ -1,0 +1,72 @@
+﻿@model IEnumerable<TranDuyVu_2210900138.Models.TDV_SACH>
+
+@{
+    ViewBag.Title = "Danh muc sach";
+    Layout = "~/Views/Shared/_TdvLayout.cshtml";
+}
+
+<h2>Danh muc sach</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tdv_MaSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tdv_TenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tdv_SoTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tdv_NamXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tdv_TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TDV_TACGIA.Tdv_TenTG)
+        </th>
+        <th>Chuc nang</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+         <td>
+            @Html.DisplayFor(modelItem => item.Tdv_MaSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tdv_TenSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tdv_SoTrang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tdv_NamXB)
+        </td>
+        <td>
+            @*Html.DisplayFor(modelItem => item.Tdv_TrangThai)*@
+            @if (item.Tdv_TrangThai == true)
+            {
+                <span style="color:green">Hoat dong</span>
+            }
+            else
+            {
+                <span style="color:red">Khong hoat dong</span>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TDV_TACGIA.Tdv_TenTG)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Tdv_MaSach }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Tdv_MaSach }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Tdv_MaSach })
+        </td>
+    </tr>
+}
+
+</table>

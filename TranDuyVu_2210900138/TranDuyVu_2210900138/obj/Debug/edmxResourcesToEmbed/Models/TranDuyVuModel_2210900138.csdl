@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TranDuyVu_2210900138Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TDV_SACH">
+    <Key>
+      <PropertyRef Name="Tdv_MaSach" />
+    </Key>
+    <Property Name="Tdv_MaSach" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Tdv_TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tdv_SoTrang" Type="Int32" />
+    <Property Name="Tdv_NamXB" Type="Int32" />
+    <Property Name="Tdv_MaTG" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Tdv_TrangThai" Type="Boolean" />
+    <NavigationProperty Name="TDV_TACGIA" Relationship="Self.FK_TDV_SACH_TDV_TACGIA" FromRole="TDV_SACH" ToRole="TDV_TACGIA" />
+  </EntityType>
+  <EntityType Name="TDV_TACGIA">
+    <Key>
+      <PropertyRef Name="Tdv_MaTG" />
+    </Key>
+    <Property Name="Tdv_MaTG" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Tdv_TenTG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TDV_SACH" Relationship="Self.FK_TDV_SACH_TDV_TACGIA" FromRole="TDV_TACGIA" ToRole="TDV_SACH" />
+  </EntityType>
+  <Association Name="FK_TDV_SACH_TDV_TACGIA">
+    <End Role="TDV_TACGIA" Type="Self.TDV_TACGIA" Multiplicity="0..1" />
+    <End Role="TDV_SACH" Type="Self.TDV_SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDV_TACGIA">
+        <PropertyRef Name="Tdv_MaTG" />
+      </Principal>
+      <Dependent Role="TDV_SACH">
+        <PropertyRef Name="Tdv_MaTG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TranDuyVu_2210900138Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TDV_SACH" EntityType="Self.TDV_SACH" />
+    <EntitySet Name="TDV_TACGIA" EntityType="Self.TDV_TACGIA" />
+    <AssociationSet Name="FK_TDV_SACH_TDV_TACGIA" Association="Self.FK_TDV_SACH_TDV_TACGIA">
+      <End Role="TDV_TACGIA" EntitySet="TDV_TACGIA" />
+      <End Role="TDV_SACH" EntitySet="TDV_SACH" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

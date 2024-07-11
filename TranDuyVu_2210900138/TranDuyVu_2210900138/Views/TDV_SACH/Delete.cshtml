@@ -1,0 +1,65 @@
+﻿@model TranDuyVu_2210900138.Models.TDV_SACH
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_TdvLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TDV_SACH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tdv_TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tdv_TenSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tdv_SoTrang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tdv_SoTrang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tdv_NamXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tdv_NamXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tdv_TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tdv_TrangThai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TDV_TACGIA.Tdv_TenTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TDV_TACGIA.Tdv_TenTG)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "TdvIndex")
+        </div>
+    }
+</div>

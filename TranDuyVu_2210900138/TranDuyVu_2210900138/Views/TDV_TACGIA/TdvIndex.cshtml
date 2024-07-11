@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TranDuyVu_2210900138.Models.TDV_TACGIA>
+
+@{
+    ViewBag.Title = "Danh muc tac gia";
+    Layout = "~/Views/Shared/_TdvLayout.cshtml";
+}
+
+<h2>Danh muc tac gia</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tdv_MaTG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tdv_TenTG)
+        </th>
+        <th>Chuc nang</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tdv_MaTG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tdv_TenTG)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Tdv_MaTG }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Tdv_MaTG }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Tdv_MaTG })
+        </td>
+    </tr>
+}
+
+</table>

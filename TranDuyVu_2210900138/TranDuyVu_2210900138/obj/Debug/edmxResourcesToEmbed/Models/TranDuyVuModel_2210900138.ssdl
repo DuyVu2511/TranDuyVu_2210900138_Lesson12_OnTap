@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TranDuyVu_2210900138Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TDV_SACH">
+    <Key>
+      <PropertyRef Name="Tdv_MaSach" />
+    </Key>
+    <Property Name="Tdv_MaSach" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Tdv_TenSach" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tdv_SoTrang" Type="int" />
+    <Property Name="Tdv_NamXB" Type="int" />
+    <Property Name="Tdv_MaTG" Type="char" MaxLength="10" />
+    <Property Name="Tdv_TrangThai" Type="bit" />
+  </EntityType>
+  <EntityType Name="TDV_TACGIA">
+    <Key>
+      <PropertyRef Name="Tdv_MaTG" />
+    </Key>
+    <Property Name="Tdv_MaTG" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Tdv_TenTG" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_TDV_SACH_TDV_TACGIA">
+    <End Role="TDV_TACGIA" Type="Self.TDV_TACGIA" Multiplicity="0..1" />
+    <End Role="TDV_SACH" Type="Self.TDV_SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDV_TACGIA">
+        <PropertyRef Name="Tdv_MaTG" />
+      </Principal>
+      <Dependent Role="TDV_SACH">
+        <PropertyRef Name="Tdv_MaTG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TranDuyVu_2210900138ModelStoreContainer">
+    <EntitySet Name="TDV_SACH" EntityType="Self.TDV_SACH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TDV_TACGIA" EntityType="Self.TDV_TACGIA" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TDV_SACH_TDV_TACGIA" Association="Self.FK_TDV_SACH_TDV_TACGIA">
+      <End Role="TDV_TACGIA" EntitySet="TDV_TACGIA" />
+      <End Role="TDV_SACH" EntitySet="TDV_SACH" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
